@@ -14,7 +14,7 @@ if (TYPE == "D20") make_d20_cube(radius, text_width, with_pattern);
 
 module make_text_side(radius, text_width, number) {
     translate([0, 0, -text_width * 2]) mirror([1, 0, 0]) {
-        linear_extrude(text_width * 1.5) {
+        linear_extrude(text_width * 1.8) {
             text(str(number, number == 6 || number == 9 || number == 66 || number == 99 ? "." : ""),
                 size = radius / sqrt(len(str(number))),
                 halign = "center", valign = "center",
@@ -35,7 +35,7 @@ module make_cube_side(radius, text_width, dtype) {
 
 module make_ptrn_side(radius, text_width, dtype) {
     translate([0, 0, -text_width * 2]) mirror([1, 0, 0]) {
-        linear_extrude(text_width * 1.5) {
+        linear_extrude(text_width * 1.8) {
             if (dtype == "patternd6") {
                 difference() {
                     rotate(90 - 180 / 4) circle(r = radius - text_width * 2, $fn = 4);
