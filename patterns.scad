@@ -54,15 +54,17 @@ module make_d20_pattern_sketch(radius) {
 module make_d4_pattern_sketch(radius) {
     difference() {
         make_side_sketch(radius - sides_interval * 1.0, 3);
-        translate([0, -radius * 0.32]) fine_circle(r = radius * 0.23, $fn = fn);
-        translate([radius * 0.28, radius * 0.16]) fine_circle(r = radius * 0.23, $fn = fn);
-        translate([-radius * 0.28, radius * 0.16]) fine_circle(r = radius * 0.23, $fn = fn);
-        for (i = [0 : 2]) rotate(28.5 + 120 * i) {
-            translate([radius * 0.7, 0]) text(size = radius * 0.18, "➸", halign = "center", valign = "center", font = "FreeSerif:style=Обычный");
+        translate([0, -radius * 0.32]) circle(r = radius * 0.23, $fn = fn);
+        translate([radius * 0.28, radius * 0.16]) circle(r = radius * 0.23, $fn = fn);
+        translate([-radius * 0.28, radius * 0.16]) circle(r = radius * 0.23, $fn = fn);
+        for (i = [0 : 2]) rotate(120 * i) {
+            rotate(30) translate([radius * 0.68, 0]) rotate(-90) {
+                text(size = radius * 0.2, "❦", halign = "center", valign = "center", font = "FreeSerif:style=Обычный");
+            }
+            rotate(-30) translate([radius * 0.25, 0]) {
+                text(size = radius * 0.2, ")>><", halign = "center", valign = "center", font = "FreeSerif:style=Обычный");
+            }
         }
-           for (i = [0 : 2]) rotate(-32 + 120 * i) {
-               translate([radius * 0.35, 0]) rotate(30) text(size = radius * 0.15, "❦", halign = "center", valign = "center", font = "FreeSerif:style=Обычный");
-           }
     }
 }
 
