@@ -2,7 +2,7 @@ include <config.scad>
 include <patterns.scad>
 include <utils.scad>
 
-TYPE = "D4";
+TYPE = "D6";
 with_pattern = true;
 fn = 50;
 
